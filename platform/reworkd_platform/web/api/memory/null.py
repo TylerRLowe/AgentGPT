@@ -1,4 +1,4 @@
-from typing import List
+from typing import Any, List
 
 from reworkd_platform.web.api.memory.memory import AgentMemory
 
@@ -12,11 +12,11 @@ class NullAgentMemory(AgentMemory):
     def __enter__(self) -> AgentMemory:
         return self
 
-    def __exit__(self, exc_type, exc_value, traceback) -> None:
+    def __exit__(self, exc_type: Any, exc_value: Any, traceback: Any) -> None:
         pass
 
-    def add_tasks(self, tasks: List[str]) -> None:
-        pass
+    def add_tasks(self, tasks: List[str]) -> List[str]:
+        return []
 
     def get_similar_tasks(self, query: str, score_threshold: float) -> List[str]:
         return []
